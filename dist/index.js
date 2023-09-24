@@ -23,14 +23,14 @@ function UserPrompt() {
         const userGuess = parseInt(answers.guess);
         attempts++;
         if (userGuess === secretNumber) {
-            console.log(`Congratulations! You guessed the secret number (${secretNumber}) in ${attempts} attempts.`);
+            console.log(`Congratulatios! You have guessed the Secret Number ${secretNumber} in ${attempts} attempts`);
         }
         else if (userGuess < secretNumber) {
             console.log('Try a higher number.');
             UserPrompt();
         }
         else {
-            console.log('Try a lower number.');
+            console.log('Try a higher number.');
             UserPrompt();
         }
     });
