@@ -1,13 +1,9 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const inquirer_1 = __importDefault(require("inquirer"));
+#! /usr/bin/env node 
+import inquirer from 'inquirer';
 const secretNumber = Math.floor(Math.random() * 100) + 1;
 let attempts = 0;
 function UserPrompt() {
-    inquirer_1.default.prompt({
+    inquirer.prompt({
         type: "input",
         name: "guess",
         message: "Guess the secret Number (1-100): ",
@@ -35,5 +31,5 @@ function UserPrompt() {
         }
     });
 }
-console.log('Welcome to the Number Guessing Game!');
+console.log('Welcome to Number Guessing Game!');
 UserPrompt();

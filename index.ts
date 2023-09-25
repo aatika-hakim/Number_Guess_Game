@@ -1,3 +1,5 @@
+#! /usr/bin/env node 
+
 import inquirer from 'inquirer';
 
 interface Answers {
@@ -36,5 +38,5 @@ function UserPrompt(){
     })
 }
 
-console.log('Welcome to the Number Guessing Game!');
+console.log('Welcome to Number Guessing Game!');
 UserPrompt();
