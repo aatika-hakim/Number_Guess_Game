@@ -32,7 +32,7 @@ function UserPrompt(){
             console.log('Try a higher number.');
             UserPrompt();
         }else{
-            console.log('Try a higher number.');
+            console.log('Try a lower number.');
             UserPrompt();
         }
     })
