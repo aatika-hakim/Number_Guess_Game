@@ -27,12 +27,12 @@ function Game() {
             const userGuess = parseInt(answers.guess);
 
             if (userGuess === SecretNum) {
-                console.log(chalk.blue(`\nCongratulations! You have guessed the Secret Number ${SecretNum}.`));
+                console.log(chalk.green(`\nCongratulations! You have guessed the Secret Number ${SecretNum}.`));
             } else if (userGuess < SecretNum) {
-                console.log(chalk.grey('Try a higher number.'));
+                console.log(chalk.magenta('Try a higher number.'));
                 Game();
             } else {
-                console.log(chalk.grey('Try a lower number.'));
+                console.log(chalk.magenta('Try a lower number.'));
                 Game();
             }
         });
