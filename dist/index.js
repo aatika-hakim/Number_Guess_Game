@@ -1,35 +1,40 @@
-#! /usr/bin/env node 
+#!/usr/bin/env node
 import inquirer from 'inquirer';
-const secretNumber = Math.floor(Math.random() * 100) + 1;
-let attempts = 0;
-function UserPrompt() {
-    inquirer.prompt({
-        type: "input",
-        name: "guess",
-        message: "Guess the secret Number (1-100): ",
+import chalk from 'chalk';
+import chalkAnimation from 'chalk-animation';
+const SecretNum = Math.floor(Math.random() * 100) + 1;
+const rainbow = chalkAnimation.rainbow('\n --------------- Welcome to Number Guess Game ---------------  \n');
+rainbow.start();
+function Game() {
+    inquirer
+        .prompt({
+        type: 'input',
+        name: 'guess',
+        message: 'Guess the secret Number [1-100]: ',
         validate: (input) => {
             const number = parseInt(input);
             if (isNaN(number) || number < 1 || number > 100) {
-                return "Please enter a valid number between 1 to 100.";
+                return 'Please enter a number (1-100).';
             }
             return true;
         }
     })
         .then((answers) => {
         const userGuess = parseInt(answers.guess);
-        attempts++;
-        if (userGuess === secretNumber) {
-            console.log(`Congratulatios! You have guessed the Secret Number ${secretNumber} in ${attempts} attempts`);
+        if (userGuess === SecretNum) {
+            console.log(chalk.green(`\nCongratulations! You have guessed the Secret Number ${SecretNum}.`));
         }
-        else if (userGuess < secretNumber) {
-            console.log('Try a higher number.');
-            UserPrompt();
+        else if (userGuess < SecretNum) {
+            console.log(chalk.magenta('Try a higher number.'));
+            Game();
         }
         else {
-            console.log('Try a lower number.');
-            UserPrompt();
+            console.log(chalk.magenta('Try a lower number.'));
+            Game();
         }
     });
 }
-console.log('Welcome to Number Guessing Game!');
-UserPrompt();
+setTimeout(() => {
+    rainbow.stop();
+    Game();
+}, 2000);
