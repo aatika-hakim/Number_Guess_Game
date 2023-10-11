@@ -18,7 +18,7 @@ function Game() {
             validate: (input) => {
                 const number = parseInt(input);
                 if (isNaN(number) || number < 1 || number > 100) {
-                    return 'Please enter a number between 1 to 100.';
+                    return 'Please enter a number (1-100).';
                 }
                 return true;
             }
@@ -29,10 +29,10 @@ function Game() {
             if (userGuess === SecretNum) {
                 console.log(chalk.blue(`\nCongratulations! You have guessed the Secret Number ${SecretNum}.`));
             } else if (userGuess < SecretNum) {
-                console.log(chalk.grey('Please try a higher number.'));
+                console.log(chalk.grey('Try a higher number.'));
                 Game();
             } else {
-                console.log(chalk.grey('Please try a lower number.'));
+                console.log(chalk.grey('Try a lower number.'));
                 Game();
             }
         });
